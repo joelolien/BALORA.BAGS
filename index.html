@@ -316,80 +316,40 @@ footer p{font-size:11px;color:var(--bg-mid);letter-spacing:1px;line-height:1.8;m
 <!-- ===== ORDER MODAL ===== -->
 <div class="modal-overlay" id="orderModal">
   <div class="modal">
-    
-    <div class="modal-hdr">
-      <h3>✨ Pre-Order Your Custom Bag</h3>
-      <button class="x-btn" onclick="closeModal()">✕</button>
-    </div>
-
+    <div class="modal-hdr"><h3>Complete Your Order</h3><button class="x-btn" onclick="closeModal()">✕</button></div>
     <div class="modal-bod">
       <div id="orderFormWrap">
-
-        <div class="pay-note">
-          💎 All bags are made-to-order. Full payment is required before production begins.
+        <div class="tabs">
+          <div class="tab active" id="tab-regular" onclick="setOT('regular')"><h4>Regular Order</h4><p>Pay on delivery or upfront</p></div>
+          <div class="tab" id="tab-preorder" onclick="setOT('preorder')"><h4>Pre-order</h4><p>Custom bag · Upfront only</p></div>
         </div>
-
-        <div class="sum" id="orderSum">
-          🛍️ You are ordering a custom-made luxury bag<br>
-          ⏳ Production starts after payment confirmation<br>
-          🚚 Delivery: 2–7 days after completion (Ghana)
-        </div>
-
+        <div class="sum" id="orderSum"></div>
+        <div id="payNote" class="pay-note" style="display:none">Pre-orders require upfront payment before production begins. We'll send payment details via WhatsApp after confirming your order.</div>
         <div class="fr">
-          <div class="fg">
-            <label>First Name</label>
-            <input type="text" id="fname" placeholder="e.g. Abena">
-          </div>
-          <div class="fg">
-            <label>Last Name</label>
-            <input type="text" id="lname" placeholder="e.g. Mensah">
-          </div>
+          <div class="fg"><label>First Name</label><input type="text" id="fname" placeholder="e.g. Abena"></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="lname" placeholder="e.g. Mensah"></div>
         </div>
-
-        <div class="fg">
-          <label>Phone / WhatsApp</label>
-          <input type="tel" id="phone" placeholder="+233 ...">
-        </div>
-
-        <div class="fg">
-          <label>Delivery Address (Accra)</label>
-          <input type="text" id="address" placeholder="Street, Area, Landmark">
-        </div>
-
-        <div class="fg" id="customDesc">
-          <label>Describe Your Custom Bag</label>
-          <textarea id="custom" rows="3" placeholder="Colours, style, size, any special details..."></textarea>
-        </div>
-
-        <div class="fg">
-          <label>Payment Method</label>
+        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phone" placeholder="+233 ..."></div>
+        <div class="fg"><label>Delivery Address (Accra)</label><input type="text" id="address" placeholder="Street, Area, Landmark"></div>
+        <div class="fg" id="customDesc" style="display:none"><label>Describe Your Custom Bag</label><textarea id="custom" rows="3" placeholder="Colours, style, size, any special details..."></textarea></div>
+        <div class="fg"><label>Payment Method</label>
           <select id="payment">
-            <option value="momo">Mobile Money (MTN / Vodafone / AirtelTigo)</option>
+            <option value="momo">Mobile Money (MTN/Vodafone/Airtetltigo)</option>
             <option value="bank">Bank Transfer</option>
           </select>
         </div>
-
-        <div class="fg">
-          <label>Special Requests</label>
-          <textarea id="notes" rows="2" placeholder="Colour preferences, gift wrapping, etc."></textarea>
-        </div>
-
+        <div class="fg"><label>Special Requests</label><textarea id="notes" rows="2" placeholder="Colour preferences, gift wrapping, etc."></textarea></div>
         <div class="m-acts">
           <button class="m-cancel" onclick="closeModal()">Cancel</button>
-          <button class="m-confirm" onclick="confirmOrder()">Confirm Pre-Order → WhatsApp</button>
+          <button class="m-confirm" onclick="confirmOrder()">Confirm Order →</button>
         </div>
-
       </div>
-
       <div class="success" id="successScreen">
         <div class="s-circle">✓</div>
         <h3>Order Received!</h3>
         <p id="successMsg"></p>
-        <button class="m-confirm" style="width:100%;margin-top:1.5rem" onclick="closeModal()">
-          Continue Shopping
-        </button>
+        <button class="m-confirm" style="width:100%;margin-top:1.5rem" onclick="closeModal()">Continue Shopping</button>
       </div>
-
     </div>
   </div>
 </div>

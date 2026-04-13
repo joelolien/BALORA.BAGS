@@ -185,6 +185,8 @@ footer p{font-size:11px;color:var(--bg-mid);letter-spacing:1px;line-height:1.8;m
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('shop')">Shop</button>
     <button onclick="showPage('about')">About</button>
+    <!-- changed: add FAQ button so the FAQ page is reachable -->
+    <button onclick="showPage('faq')">FAQ</button>
     <button onclick="showPage('contact')">Contact</button>
     <button class="cart-btn" onclick="openCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
   </div>
@@ -604,6 +606,9 @@ function sendContact(){
 }
 
 function nlSignup3(){ const v = (document.getElementById('nlEmail3')||{}).value; if(!v || !v.trim()){ showToast('Please enter your email'); return; } showToast("You're on the list!"); if(document.getElementById('nlEmail3')) document.getElementById('nlEmail3').value=''; }
+
+// render products on initial load so Shop + Add-to-Cart work immediately
+renderProducts('all');
 </script>
 </body>
 </html>

@@ -46,6 +46,86 @@ nav{background:var(--mauve);padding:0 2rem;display:flex;align-items:center;justi
 .about-band p{font-size:14px;color:var(--mauve-light);max-width:560px;margin:0 auto;line-height:2;font-style:italic}
 .about-band p strong{color:var(--mauve);font-style:normal;font-size:15px}
 
+<!-- ╔══ FAQ ══╗ -->
+<div class="page" id="page-faq">
+  <div class="faq-hero">
+    <p class="sec-label">Got Questions?</p>
+    <h2 class="sec-title">FAQ</h2>
+    <div class="sec-line"></div>
+    <p style="font-size:13px;color:var(--muted);font-style:italic">Common questions about orders, shipping & products</p>
+  </div>
+  <div class="faq-body">
+    <div class="faq-group">
+      <div class="faq-group-title">Delivery & Returns</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Where do you deliver to?</div>
+        <div class="faq-a">We currently deliver within Accra only. We're working on expanding to other regions of Ghana soon — sign up to our newsletter to be notified.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does delivery take?</div>
+        <div class="faq-a">Once your order is ready, delivery within Accra typically takes 1–3 working days depending on your area and our dispatch schedule.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is your processing time?</div>
+        <div class="faq-a">Our bags are handmade to order, so processing times vary with order volume. Please allow 1–2 weeks for your bag to be made and prepared for delivery. Items in our drops may have different timelines.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you accept returns?</div>
+        <div class="faq-a">We do not accept returns. However, we do offer a hassle-free exchange policy. If something isn't quite right, please reach out to us via WhatsApp or Instagram within 5 days of receiving your bag.</div>
+      </div>
+    </div>
+    <div class="faq-group">
+      <div class="faq-group-title">Products & Care</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I care for my bag?</div>
+        <div class="faq-a">We recommend hand washing with a gentle soap and laying flat to dry. Avoid machine washing, wringing, or direct sunlight for extended periods to preserve the colours and shape.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I place a custom order?</div>
+        <div class="faq-a">Yes! Custom bags are available upon request. We can accommodate:
+          <ul class="custom-list" style="margin-top:.5rem">
+            <li>Custom colourways</li>
+            <li>Custom sizes</li>
+            <li>Handle length preferences</li>
+            <li>Personalised details</li>
+          </ul>
+          Send us a DM on Instagram or WhatsApp to get started.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What payment is required for pre-orders?</div>
+        <div class="faq-a">All pre-orders and custom orders require upfront payment before production begins. We accept MTN MoMo, Vodafone Cash, AirtelTigo Money, and bank transfer. We'll send payment details via WhatsApp after confirming your order.</div>
+      </div>
+    </div>
+    <div class="faq-group">
+      <div class="faq-group-title">Drop Releases</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do drops work?</div>
+        <div class="faq-a">We release new collections in limited drops. Once items are sold out, they may not restock — so sign up to our newsletter and follow us on Instagram to get early access before they sell out.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Will sold out items be restocked?</div>
+        <div class="faq-a">Some popular styles may be restocked in future drops. The best way to know is to subscribe to our newsletter or follow our socials. You can also DM us to be added to the waitlist for a specific bag.</div>
+      </div>
+    </div>
+  </div>
+  <div class="nl-sec">
+    <p class="sec-label" style="color:var(--mauve)">Stay updated</p>
+    <h2 class="sec-title">Sign up to be first to hear about our next drop</h2>
+    <div class="sec-line"></div>
+    <p>Early access for subscribers.</p>
+    <div class="nl-form">
+      <input type="email" id="nlEmail3" placeholder="Your email address">
+      <button onclick="nlSignup3()">Subscribe</button>
+    </div>
+  </div>
+  <footer>
+    <div class="logo">balora <em>bags</em></div>
+    <p>© 2026 Balora Bags · Accra, Ghana · All rights reserved</p>
+  </footer>
+</div>
+
+
+  
 /* FEATURES */
 .feats{background:var(--mauve);padding:2.5rem 2rem}
 .feats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;text-align:center}
@@ -159,6 +239,13 @@ footer p{font-size:11px;color:var(--bg-mid);letter-spacing:1px;line-height:1.8;m
 .s-circle{width:66px;height:66px;background:var(--mauve);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:28px;color:var(--bg)}
 .success h3{font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);font-family:Georgia,serif;font-style:italic;margin-bottom:.5rem}
 .success p{font-size:13px;color:var(--text-muted);line-height:1.8}
+
+/* ── FAQ ── */
+function toggleFaq(el){
+  const item=el.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
 
 /* TOAST */
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--mauve);color:var(--bg);padding:10px 26px;font-size:12px;letter-spacing:1px;border-radius:24px;z-index:500;transition:transform .3s;border:1px solid var(--bg);font-weight:700}
